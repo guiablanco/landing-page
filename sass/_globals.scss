@@ -1,0 +1,226 @@
+//Variables
+$color-main: #0075FF;
+$color-footer: #F4F8FE;
+
+//Mixin
+@mixin section-display {
+    width: 100%;
+    max-width: 992px;
+    margin: auto;
+    padding: 3rem;
+}
+
+html{
+    min-width: 100vw;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+// Barra de Navegación
+.logo{
+    
+    .logo-coinbase{
+        float: left;
+        max-width: 6rem;
+        max-height: 4rem;
+    }
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 4rem;
+    border-bottom: solid 1px #ddd;
+}
+
+
+// Home
+
+.sec-home{
+    display: flex;
+    align-items: center;
+    @include section-display();
+    .home-cta{
+        flex: 1;
+        .cta-text{
+            color: $color-main;
+            h2{
+                color: black;
+            }
+        }
+        .home-description{
+            width: 300px;
+        }
+        .lead-magnet {
+            .input-col{
+                max-width: 250px;
+            }
+        }
+    }
+
+    .home-img{
+        img{
+            max-height: 20rem;
+            max-width: 20rem;
+            margin-top: -2rem;
+        }
+
+    }
+
+}
+
+
+//Features
+.sec-features{
+    @include section-display();
+    display: flex;
+    flex-direction: column;
+    .intro {
+        text-align: center;
+        h3 {
+            font-size: 1.8rem;
+        }
+
+        p{
+            font-size: 0.8rem;
+            color: #888;
+        }
+    }
+    .features {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin: auto;
+        .text{
+            padding: 2rem 0;
+            flex: 1;
+            .feature{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                .description{
+                    margin-left: 1rem;
+                    max-width: 20rem;
+                    .description-title{
+                        font-size: 1.15rem;
+                    }
+                    .description-text{
+                        font-size: 1rem;
+                    }
+                }
+            }
+            
+        }
+
+        .image{
+            img{
+                max-width: 30rem;
+            }
+        }
+    }
+}
+
+
+//Benefits
+.sec-benefits {
+    border-top: 1px solid #ddd;
+    .intro {
+    @extend .sec-features, .intro;
+    text-align: center;
+    }
+    .benefit-cards{
+        width: 100%;
+        padding: 0 2rem 2rem 2rem;
+    }
+}
+
+//KPIs
+.sec-kpis {
+    width: 100%;
+    background-color: $color-main;
+    color: white;
+    padding: 4rem;
+    .kpi{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .number{
+            font-size: 3.5rem;
+            font-weight: 600;
+        }
+        .desc{
+            font-size: 0.9rem;
+            color: #ffffffaa;
+        }
+    }
+}
+
+//OnBoarding
+.sec-onboarding{
+    .intro{
+        @extend .sec-features, .intro;
+        text-align: center;
+    }
+    .steps{
+        padding: 0 7rem 5rem 7rem;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        .step-separator{
+            flex: 1;
+            border-top: 3px solid #ddd;
+            margin: 0 1rem;
+        }
+    }
+}
+
+//Footer
+
+.sec-footer-cta {
+    background-color: $color-footer;
+    background-image: url(../assets/img/footer.webp);
+    background-repeat: no-repeat;
+    background-position: 100%;
+    padding: 5rem;
+    .footer-cta{
+        width: 50%;
+        .cta-title{
+            font-size: 2rem;
+        }
+        .cta-description{
+            font-size: 1.1rem;
+        }
+    }
+    
+}
+
+//Propiedades hasta 768px width
+@media(max-width: 768px){
+    .sec-onboarding{
+        .steps{
+            flex-direction: column;
+            .icon-desc{
+                .title{
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .sec-footer-cta{
+        width: 100%;
+        background-image: none;
+        text-align: center;
+    }
+
+    .sec-benefits{
+        .intro h3{
+            font-size: 2rem;
+        }
+    }
+}
